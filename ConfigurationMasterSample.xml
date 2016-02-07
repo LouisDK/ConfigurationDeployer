@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigurationMaster>
+
+  <!-- Recipes : This indicates (per environment) which components are running on which servers, and where that component's configuration file is on each server. -->
+  <Recipes>
+    <Environment Title="QA">
+      <Component Title="ComponentA">
+        <Server ComputerName="svrA" ConfigFilePath="\\localhost\temp\sampleConfigs\QA-CompA-SvrA-MicroService.exe.config" />
+      </Component>
+
+      <Component Title="ComponentB">
+        <Server ComputerName="svrA" ConfigFilePath="\\localhost\temp\sampleConfigs\QA-CompB-SvrA-MicroService.exe.config" />
+        <Server ComputerName="svrB" ConfigFilePath="\\localhost\temp\sampleConfigs\QA-CompB-SvrB-MicroService.exe.config" />
+      </Component>
+
+      <Component Title="ComponentC">
+        <Server ComputerName="svrB" ConfigFilePath="\\localhost\temp\sampleConfigs\QA-CompC-SvrB-MicroService.exe.config" />
+        <Server ComputerName="svrC" ConfigFilePath="\\localhost\temp\sampleConfigs\QA-CompC-SvrC-MicroService.exe.config" />
+      </Component>
+
+      <Component Title="ComponentD">
+        <Server ComputerName="svrC" ConfigFilePath="\\localhost\temp\sampleConfigs\QA-CompD-SvrC-MicroService.exe.config" />
+      </Component>
+    </Environment>
+    <Environment Title="Prod">
+      <Component Title="ComponentA">
+        <Server ComputerName="svrA" ConfigFilePath="\\localhost\temp\sampleConfigs\Prod-CompA-SvrA-MicroService.exe.config" />
+      </Component>
+
+      <Component Title="ComponentB">
+        <Server ComputerName="svrA" ConfigFilePath="\\localhost\temp\sampleConfigs\Prod-CompB-SvrA-MicroService.exe.config" />
+        <Server ComputerName="svrB" ConfigFilePath="\\localhost\temp\sampleConfigs\Prod-CompB-SvrB-MicroService.exe.config" />
+      </Component>
+
+      <Component Title="ComponentC">
+        <Server ComputerName="svrB" ConfigFilePath="\\localhost\temp\sampleConfigs\Prod-CompC-SvrB-MicroService.exe.config" />
+        <Server ComputerName="svrC" ConfigFilePath="\\localhost\temp\sampleConfigs\Prod-CompC-SvrC-MicroService.exe.config" />
+      </Component>
+
+      <Component Title="ComponentD">
+        <Server ComputerName="svrC" ConfigFilePath="\\localhost\temp\sampleConfigs\Prod-CompD-SvrC-MicroService.exe.config" />
+      </Component>
+    </Environment>
+  </Recipes>
+
+  <Settings>
+
+    <Setting Name="POPIKey" Key="POPIKey" GlobalDefaultValue="$ss$d%097!">
+      <ApplicableComponents>
+        <Component Title="ComponentA" />
+        <Component Title="ComponentB" />
+        <Component Title="ComponentD" />
+      </ApplicableComponents>
+    </Setting>
+
+    <Setting Name="ConnectionString" Key="ConnectionString" GlobalDefaultValue="Data Source=.;Initial Catalog=PIRSDB;Integrated Security=True;MultipleActiveResultSets=True">
+      <ApplicableComponents>
+        <Component Title="ComponentA" />
+        <Component Title="ComponentB" />
+        <Component Title="ComponentC" />
+        <Component Title="ComponentD" />
+      </ApplicableComponents>
+
+    </Setting>
+
+    <Setting Name="Rabbit MQ Unique Client Name" Key="RabbitMQClientName" GlobalDefaultValue="QTest">
+      <ApplicableComponents>
+        <Component Title="ComponentA" />
+        <Component Title="ComponentB" />
+        <Component Title="ComponentC" />
+        <Component Title="ComponentD" />
+      </ApplicableComponents>
+
+      <Override OverrideValue="webA">
+        <Component Title="ComponentA" />
+        <Server ComputerName="svrA"/>
+      </Override>
+
+      <Override OverrideValue="webB">
+        <Component Title="ComponentA" />
+        <Server ComputerName="svrB"/>
+      </Override>
+
+      <Override OverrideValue="msB-svrA">
+        <Component Title="ComponentB" />
+        <Server ComputerName="svrA"/>
+      </Override>
+
+      <Override OverrideValue="msB-svrB">
+        <Component Title="ComponentB" />
+        <Server ComputerName="svrB"/>
+      </Override>
+
+      <Override OverrideValue="msB-svrC">
+        <Component Title="ComponentB" />
+        <Server ComputerName="svrC"/>
+      </Override>
+
+      <Override OverrideValue="msC-svrA">
+        <Component Title="ComponentC" />
+        <Server ComputerName="svrA"/>
+      </Override>
+
+      <Override OverrideValue="msC-svrB">
+        <Component Title="ComponentC" />
+        <Server ComputerName="svrB"/>
+      </Override>
+
+      <Override OverrideValue="msC-svrC">
+        <Component Title="ComponentC" />
+        <Server ComputerName="svrC"/>
+      </Override>
+
+      <Override OverrideValue="msD-svrA">
+        <Component Title="ComponentD" />
+        <Server ComputerName="svrA"/>
+      </Override>
+
+      <Override OverrideValue="msD-svrB">
+        <Component Title="ComponentD" />
+        <Server ComputerName="svrB"/>
+      </Override>
+
+      <Override OverrideValue="msD-svrC">
+        <Component Title="ComponentD" />
+        <Server ComputerName="svrC"/>
+      </Override>
+
+    </Setting>
+
+    <Setting Name="SomeOtherSetting" Key="settingTY5" GlobalDefaultValue="abc">
+      <ApplicableComponents>
+        <Component Title="ComponentA" />
+        <Component Title="ComponentB" />
+        <Component Title="ComponentC" />
+        <Component Title="ComponentD" />
+      </ApplicableComponents>
+
+      <Override OverrideValue="a0">
+        <Component Title="ComponentA" />
+        <Environment Title="Dev" />
+      </Override>
+
+      <Override OverrideValue="a1">
+        <Component Title="ComponentA" />
+        <Environment Title="QA" />
+      </Override>
+
+      <Override OverrideValue="a2">
+        <Component Title="ComponentA" />
+        <Environment Title="Prod" />
+      </Override>
+
+      <Override OverrideValue="lowe">
+        <Component Title="ComponentC"/>
+        <Environment Title="Prod"/>
+      </Override>
+
+      <Override OverrideValue="b1">
+        <Component Title="ComponentA" />
+        <Environment Title="Prod" />
+        <Server ComputerName="svrA" />
+      </Override>
+
+      <Override OverrideValue="b2">
+        <Component Title="ComponentA" />
+        <Environment Title="Prod" />
+        <Server ComputerName="svrB" />
+      </Override>
+
+    </Setting>
+
+  </Settings>
+
+</ConfigurationMaster>
