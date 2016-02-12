@@ -5,6 +5,10 @@ At its heart is the Master Configuration file - an XML file where all settings a
 It can apply these settings to those configuration files.
 It can also later verify that all the settings in those configuration files are still correct, as per the Master Configuration File.
 
+**Author**:
+Louis de Klerk    
+louisdeklerk AT gmail DOT com
+
 ### Use case
 Sometime a system consist of many different components, each with its own .config file.
 Imagine a system with 10 components, that is typically deployed across 3-5 computers.

@@ -53,7 +53,7 @@ namespace ConfigurationDeployerRunner
 
         public static void PrintLogo()
         {
-            Console.SetWindowSize(140, 84);
+            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowWidth);
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine(@"8888888                         .d8888b.                     .d888 d8b          ");
             Console.WriteLine(@"  888                          d88P  Y88b                   d88P""  Y8P          ");
