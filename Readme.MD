@@ -40,8 +40,13 @@ This Configuration Deployer project was conceived for those types of settings th
 
 ### Current Release:
 
-  - This is a **pre-release**
+  - This is a **stable release**, and has been used in our production deployment pipeline since 1 March 2016.
   - It has only been tested on Windows Server 2008, Windows Server 2008 R2 and Windows 10.
+
+### Known issues
+
+  - On some computers, the screen resolution might cause the application to crash. Workaround: change the default font size of your console to a smaller font.
+
 
 # To install:
 
